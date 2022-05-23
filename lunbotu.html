@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>轮播图</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <div id="wrap">
+      <!-- 图片 -->
+      <div class="img-list">
+        <img src="./imgs/1.jpg" alt="" />
+        <img src="./imgs/2.jpg" alt="" />
+        <img src="./imgs/3.jpg" alt="" />
+        <img src="./imgs/4.jpg" alt="" />
+        <img src="./imgs/5.jpg" alt="" />
+        <img src="./imgs/6.jpg" alt="" />
+      </div>
+      <!-- 箭头 -->
+      <div class="arrow">
+        <a href="javascript:;" class="left"></a>
+        <a href="javascript:;" class="right"></a>
+      </div>
+      <!-- 小圆点 -->
+      <ul class="circle-list">
+        <li class="circle active"></li>
+        <li class="circle"></li>
+        <li class="circle"></li>
+        <li class="circle"></li>
+        <li class="circle"></li>
+        <li class="circle"></li>
+      </ul>
+    </div>
+    <script type="text/javascript">
+      // 获取左右按钮和图片列表
+      let oLeft = document.querySelector(".left");
+      let oRight = document.querySelector(".right");
+      let oImgList = document.querySelector(".img-list");
+
+      //    克隆
+
+      //    向右切换
+      let index = 0;
+      oRight.addEventListener("click", () => {
+        index++;
+        oImgList.style.left = index * -1226 + "px";
+        if (index === 6) {
+          index = 0;
+          oImgList.style.left = index * -1226 + "px";
+        }
+      });
+      //    向左切git push -u origin main换
+      oLeft.addEventListener("click", () => {
+        index--;
+        if (index === -1) {
+          oImgList.style.left = 5 * -1226 + "px";
+        } else {
+          oImgList.style.left = index * -1226 + "px";
+        }
+      });
+    </script>
+  </body>
+</html>
